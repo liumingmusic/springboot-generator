@@ -18,16 +18,16 @@ import org.springframework.stereotype.Component;
 
 /** 
  * @ClassName: HandlerLogAspect 
- * @Description: 自定义注解类
- * @author 
+ * @Description: 实现自定义拦截切面类
+ * @author doubleM
  * @date 2018年3月16日 下午3:59:24 
  *  
  */
 @Component
 @Aspect
-public class HandlerLogAspect {
+public class AspectExample {
 
-	@Pointcut(value = "@annotation(com.example.aop.HandlerLog)")
+	@Pointcut(value = "@annotation(com.example.aop.AopExample)")
 	public void access() {
 
 	}
@@ -38,7 +38,7 @@ public class HandlerLogAspect {
 	}
 
 	@Around("@annotation(handlerLog)")
-	public Object around(ProceedingJoinPoint pjp, HandlerLog handlerLog) {
+	public Object around(ProceedingJoinPoint pjp, AopExample handlerLog) {
 		// 获取注解里的值
 		System.out.println("second around:" + handlerLog.desc());
 		try {

@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.example.utils.ErrorInfo;
+import com.example.utils.ResponseResult;
 
 /** 
  * @ClassName: GlobalExceptionHandler 
- * @Description: (这里用一句话描述这个类的作用) 
- * @author 
+ * @Description: 全局异常拦截
+ * @author doubleM
  * @date 2018年3月15日 上午10:42:44 
  *  
  */
@@ -36,12 +36,7 @@ public class GlobalExceptionHandler {
 	 */
 	@ExceptionHandler(value = Exception.class)
 	@ResponseBody
-	public ErrorInfo<String> jsonErrorHandler(HttpServletRequest req, Exception e) throws Exception {
-		ErrorInfo<String> r = new ErrorInfo<>();
-		r.setMessage(e.getMessage());
-		r.setCode(ErrorInfo.ERROR);
-		r.setData("Some Data");
-		r.setUrl(req.getRequestURL().toString());
-		return r;
+	public ResponseResult<String> jsonErrorHandler(HttpServletRequest req, Exception e) throws Exception {
+		return ResponseResult.error("系统异常");
 	}
 }

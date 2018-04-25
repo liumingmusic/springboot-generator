@@ -10,7 +10,6 @@ package com.example.mapper;
 
 import java.util.concurrent.Future;
 
-import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,14 +18,14 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.example.Application;
-import com.example.dao.AccessInfoDao;
-import com.example.entity.AccessInfo;
-import com.example.scheduled.TaskAsync;
+import com.example.dao.HelloExampleDao;
+import com.example.entity.HelloExampleEntity;
+import com.example.scheduled.AsyncExample;
 import com.example.utils.PageParam;
 
 /** 
  * @ClassName: AccessInfoMapperTest 
- * @Description: 单元测试类
+ * @Description: 单元测试类示例
  * @author 
  * @date 2018年3月15日 上午10:59:20 
  *  
@@ -35,19 +34,17 @@ import com.example.utils.PageParam;
 @SpringBootTest(classes = Application.class)
 public class AccessInfoServiceTest {
 
-	private static final Logger LOGGER = Logger.getLogger(AccessInfoServiceTest.class);
+	@Autowired
+	private HelloExampleDao accessInfoDao;
 
 	@Autowired
-	private AccessInfoDao accessInfoDao;
-
-	@Autowired
-	private TaskAsync taskAsync;
+	private AsyncExample taskAsync;
 
 	@Test
 	@Rollback
 	public void findByName() throws Exception {
 		PageParam pageParam = new PageParam();
-		AccessInfo accessInfoByUUID = accessInfoDao.getAccessInfoByUUID("0wK5W8XK", pageParam);
+		HelloExampleEntity accessInfoByUUID = accessInfoDao.getHelloExampleUUID("0wK5W8XK");
 		System.out.println(pageParam);
 		System.out.println(accessInfoByUUID);
 	}

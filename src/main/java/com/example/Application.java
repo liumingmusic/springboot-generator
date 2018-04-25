@@ -7,8 +7,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * 
- * @ClassName: SpringDemoApplication 
- * @Description: 各种教程
+ * @ClassName: Application 
+ * @Description: 初始化启动代码
  * @author 
  * @date 2018年3月16日 上午11:24:57 
  *

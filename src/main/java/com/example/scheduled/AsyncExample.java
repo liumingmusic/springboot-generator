@@ -17,13 +17,13 @@ import org.springframework.stereotype.Component;
 
 /** 
  * @ClassName: TaskAsync 
- * @Description: (这里用一句话描述这个类的作用) 
- * @author 
+ * @Description: 异步任务案例代码
+ * @author doubleM
  * @date 2018年3月15日 上午11:20:30 
  *  
  */
 @Component
-public class TaskAsync {
+public class AsyncExample {
 
 	public static Random random = new Random();
 

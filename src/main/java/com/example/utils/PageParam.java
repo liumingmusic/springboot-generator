@@ -10,8 +10,8 @@ package com.example.utils;
 
 /** 
  * @ClassName: PageParam 
- * @Description: (这里用一句话描述这个类的作用) 
- * @author 
+ * @Description: 分页实体信息
+ * @author doubleM
  * @date 2018年3月16日 下午4:43:57 
  *  
  */

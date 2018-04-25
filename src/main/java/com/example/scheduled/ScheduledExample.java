@@ -16,17 +16,17 @@ import org.springframework.stereotype.Component;
 
 /** 
  * @ClassName: ScheduledTasks 
- * @Description: (这里用一句话描述这个类的作用) 
- * @author 
+ * @Description: 定时任务案例代码
+ * @author doubleM
  * @date 2018年3月15日 上午11:16:39 
  *  
  */
 @Component
-public class ScheduledTasks {
+public class ScheduledExample {
 
 	private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
-	@Scheduled(fixedRate = 5000)
+	@Scheduled(fixedRate = 60 * 60 * 1000)
 	public void reportCurrentTime() {
 		System.out.println("现在时间：" + dateFormat.format(new Date()));
 	}

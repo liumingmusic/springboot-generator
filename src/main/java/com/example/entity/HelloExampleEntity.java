@@ -4,7 +4,15 @@ import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class AccessInfo implements Serializable {
+/**
+ * 
+ * @ClassName: HelloExampleEntity 
+ * @Description: 基本对应的数据库实体信息
+ * @author doubleM
+ * @date 2018年4月25日 下午5:18:50 
+ *
+ */
+public class HelloExampleEntity implements Serializable {
 
 	/** 
 	 * @Fields serialVersionUID : (用一句话描述这个变量表示什么) 

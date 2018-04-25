@@ -24,15 +24,15 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 /** 
  * @ClassName: WebLogAspect 
- * @Description: (这里用一句话描述这个类的作用) 
- * @author 
+ * @Description: 根据类路径切面日志
+ * @author doubleM
  * @date 2018年3月15日 下午1:48:26 
  *  
  */
 
 @Aspect
 @Component
-public class WebLogAspect {
+public class WebLogAspectExample {
 
 	private Logger logger = Logger.getLogger(getClass());
 

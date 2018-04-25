@@ -8,17 +8,17 @@
  */
 package com.example.service;
 
-import com.example.entity.AccessInfo;
+import com.example.entity.HelloExampleEntity;
 
 /** 
- * @ClassName: AccessInfoService 
- * @Description: (这里用一句话描述这个类的作用) 
- * @author 
+ * @ClassName: IHelloExampleService 
+ * @Description: 数据查询业务示例代码
+ * @author doubleM
  * @date 2018年3月16日 上午11:42:01 
  *  
  */
-public interface AccessInfoService {
+public interface IHelloExampleService {
 
-	public AccessInfo getAccessInfoByUUID(String uuid);
+	public HelloExampleEntity getHelloExampleUUID(String uuid);
 
 }

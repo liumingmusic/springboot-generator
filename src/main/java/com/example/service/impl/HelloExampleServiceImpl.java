@@ -13,29 +13,27 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.dao.AccessInfoDao;
-import com.example.entity.AccessInfo;
-import com.example.service.AccessInfoService;
-import com.example.utils.PageParam;
+import com.example.dao.HelloExampleDao;
+import com.example.entity.HelloExampleEntity;
+import com.example.service.IHelloExampleService;
 
 /** 
  * @ClassName: AccessInfoServiceImpl 
- * @Description: (这里用一句话描述这个类的作用) 
- * @author 
+ * @Description: 业务操作dao层的代码示例
+ * @author doubleM
  * @date 2018年3月16日 上午11:42:58 
  *  
  */
 @Service
-public class AccessInfoServiceImpl implements AccessInfoService {
+public class HelloExampleServiceImpl implements IHelloExampleService {
 
 	@Autowired
-	private AccessInfoDao accessInfoDao;
+	private HelloExampleDao helloExampleDao;
 
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
-	public AccessInfo getAccessInfoByUUID(String uuid) {
-		PageParam pageParam = new PageParam();
-		AccessInfo enInfo = accessInfoDao.getAccessInfoByUUID(uuid, pageParam);
+	public HelloExampleEntity getHelloExampleUUID(String uuid) {
+		HelloExampleEntity enInfo = helloExampleDao.getHelloExampleUUID(uuid);
 		return enInfo;
 	}
 

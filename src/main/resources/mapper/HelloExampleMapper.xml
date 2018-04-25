@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>  
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.dao.AccessInfoDao">
+<mapper namespace="com.example.dao.HelloExampleDao">
 	
-	<resultMap id="BaseResultMap" type="com.example.entity.AccessInfo" >
+	<resultMap id="BaseResultMap" type="com.example.entity.HelloExampleEntity" >
         <id 		column="id" 		property="id" 			jdbcType="INTEGER" />
         <result 	column="uri" 		property="uri" 			jdbcType="VARCHAR" />
         <result 	column="out_time" 	property="outTime" 		jdbcType="BIGINT" />
     </resultMap>
 	
 	<!-- 查询数据信息 -->
-	<select id="getAccessInfoByUUID" resultType="com.example.entity.AccessInfo" parameterType="java.lang.String">
+	<select id="getHelloExampleByUUID" resultType="com.example.entity.HelloExampleEntity" parameterType="java.lang.String">
 		select id, uri, out_time from accessinfo where uuid = #{uuid, jdbcType=VARCHAR}
 	</select>
 	
-	<select id="findByParams" resultType="com.example.entity.AccessInfo">
+	<select id="findByParams" resultType="com.example.entity.HelloExampleEntity">
 		select id, uri, out_time from accessinfo
 	</select>
 	

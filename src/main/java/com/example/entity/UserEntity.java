@@ -14,13 +14,13 @@ import org.springframework.stereotype.Component;
 
 /** 
  * @ClassName: UserEntity 
- * @Description: (这里用一句话描述这个类的作用) 
- * @author 
+ * @Description: 资源文件对应的实体信息映射
+ * @author doubleM
  * @date 2018年3月15日 上午10:09:19 
  *  
  */
 @Component
-@PropertySource(value = { "classpath:properties/data.properties" })
+@PropertySource(value = { "classpath:properties/dataExample.properties" })
 public class UserEntity {
 
 	@Value("${com.example.name}")
