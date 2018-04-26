@@ -21,6 +21,6 @@
 # 4、后续
 1. 集成kafka消息队列
 2. 集成elasticsearch搜索
-3. 集成redis换成
+3. 集成redis缓存
 
 
