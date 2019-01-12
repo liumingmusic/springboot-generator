@@ -1,11 +1,3 @@
-/**   
- * @Title: HandlerLog.java 
- * @Package com.example.aop 
- * @Description: (用一句话描述该文件做什么) 
- * @author 
- * @date 2018年3月16日 下午3:57:18 
- * @version 
- */
 package com.example.aop;
 
 import java.lang.annotation.ElementType;

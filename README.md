@@ -15,12 +15,12 @@
 9. 注解示例代码
 10. 基础的log4j配置
 11. 集成redis缓存
+12. 集成elasticsearch搜索
 
 # 3、使用说明
 工程中类名包含**example**，为工程实例代码，可以按需要进行删除。
 
 # 4、后续
 1. 集成kafka消息队列
-2. 集成elasticsearch搜索
 
 

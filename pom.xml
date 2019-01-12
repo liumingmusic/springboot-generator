@@ -27,13 +27,14 @@
         <guava.version>16.0</guava.version>
         <hbase.version>1.1.1</hbase.version>
         <swagger2.version>2.7.0</swagger2.version>
-        <beanutils.version>1.9.3</beanutils.version>
-        <lang3.version>3.3.2</lang3.version>
-        <zookeeper.version>3.4.6</zookeeper.version>
         <zkclient.version>0.10</zkclient.version>
         <htrace.version>2.01</htrace.version>
         <mybatis.version>1.3.2</mybatis.version>
         <mysql.version>5.1.21</mysql.version>
+        <fastjson.version>1.2.47</fastjson.version>
+        <elasticsearch.version>5.2.0</elasticsearch.version>
+        <log4j-core.version>2.7</log4j-core.version>
+        <projectlombok.version>1.16.20</projectlombok.version>
     </properties>
 
     <!-- 依赖类库 -->
@@ -53,25 +54,66 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!--aop-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
+        <!--mongodb-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
+        <!--log4j2-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
+        </dependency>
+        <!--redis-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <!--starter-json-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-json</artifactId>
+        </dependency>
+        <!--kafka-->
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+        </dependency>
+        <!--quartz-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-quartz</artifactId>
+        </dependency>
+
+        <!--test-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-log4j</artifactId>
-            <version>1.3.8.RELEASE</version>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka-test</artifactId>
+            <scope>test</scope>
         </dependency>
 
-        <!--kafka-->
+        <!--druid-spring-boot-starter-->
         <dependency>
-            <groupId>org.springframework.kafka</groupId>
-            <artifactId>spring-kafka</artifactId>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.1.10</version>
+        </dependency>
+
+        <!--devtools-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
         </dependency>
 
         <!-- Swagger2 -->
@@ -98,18 +140,11 @@
             <version>${mysql.version}</version>
         </dependency>
 
-        <!--druid-->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-            <version>1.0.29</version>
-        </dependency>
-
         <!--fastjson-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.47</version>
+            <version>${fastjson.version}</version>
         </dependency>
 
         <!--google.guava工具包 -->
@@ -147,11 +182,27 @@
             <version>${hbase.version}</version>
         </dependency>
 
-        <!-- redis -->
+        <!--elasticsearch 客户端 -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>transport</artifactId>
+            <version>${elasticsearch.version}</version>
         </dependency>
+        <!--ElasticSearch 5.x 根据官网配置maven 依赖, 由于 5.0x的 jar 内部使用的 apache log4日志。 -->
+        <!--所以要配置额外的依赖支持 org.apache.logging.log4j。 -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j-core.version}</version>
+        </dependency>
+
+        <!--projectlombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${projectlombok.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>

@@ -27,7 +27,7 @@ public interface IHbaseExampleService {
 	 * @param id 多个rowkey
 	 * @return 设定文件
 	 */
-	public List<HbaseExampleEntity> getDataByRowkey(String id);
+	 List<HbaseExampleEntity> getDataByRowkey(String id);
 
 	/**
 	 * 
@@ -35,6 +35,6 @@ public interface IHbaseExampleService {
 	 * @param list
 	 * @return 设定文件
 	 */
-	public boolean saveBatch(List<HbaseExampleEntity> list);
+	 boolean saveBatch(List<HbaseExampleEntity> list);
 
 }

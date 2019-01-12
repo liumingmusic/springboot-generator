@@ -1,11 +1,3 @@
-/**   
- * @Title: AccessInfoMapper.java 
- * @Package com.example.mapper 
- * @Description: (用一句话描述该文件做什么) 
- * @author 
- * @date 2018年3月15日 上午10:55:32 
- * @version 
- */
 package com.example.dao;
 
 import java.util.List;
@@ -15,31 +7,32 @@ import org.apache.ibatis.annotations.Param;
 
 import com.example.entity.HelloExampleEntity;
 import com.example.utils.PageParam;
+import org.springframework.stereotype.Component;
 
-/** 
- * @ClassName: HelloExampleDao 
- * @Description: 数据操作的接口类
+/**
  * @author doubleM
- * @date 2018年3月15日 上午10:55:32 
- *  
+ * @ClassName: HelloExampleDao
+ * @Description: 数据操作的接口类
+ * @date 2018年3月15日 上午10:55:32
  */
 @Mapper
+@Component(value = "helloExampleDao")
 public interface HelloExampleDao {
 
-	/**
-	 * 
-	 * @Description: 根据id进行数据查询
-	 * @param uuid id值
-	 * @return 设定文件
-	 */
-	public HelloExampleEntity getHelloExampleUUID(@Param("uuid") String uuid);
+    /**
+     * 根据id进行数据查询
+     *
+     * @param uuid id值
+     * @return entity
+     */
+    HelloExampleEntity getHelloExampleUUID(@Param("uuid") String uuid);
 
-	/**
-	 * 
-	 * @Description: 分页查询数据信息
-	 * @param pageParam 分页参数
-	 * @return 设定文件
-	 */
-	public List<HelloExampleEntity> findByParams(PageParam pageParam);
+    /**
+     * 分页查询数据信息
+     *
+     * @param pageParam 参数
+     * @return 分页
+     */
+    List<HelloExampleEntity> findByParams(PageParam pageParam);
 
 }
