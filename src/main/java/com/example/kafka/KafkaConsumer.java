@@ -1,8 +1,7 @@
 package com.example.kafka;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.messaging.handler.annotation.Header;
@@ -21,7 +20,7 @@ import java.util.Optional;
 @Component
 public class KafkaConsumer {
 
-    private static final Logger logger = LogManager.getLogger(KafkaConsumer.class);
+    private static final org.slf4j.Logger logger = LoggerFactory.getLogger(KafkaConsumer.class);
 
     /**
      * 监听kafka.tut 的 topic

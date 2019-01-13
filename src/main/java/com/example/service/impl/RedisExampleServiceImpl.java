@@ -44,7 +44,7 @@ public class RedisExampleServiceImpl implements IRedisExampleServce {
      */
     @Override
     public boolean set(String key, String val) {
-        boolean flag = false;
+        boolean flag;
         ValueOperations<String, String> opsForValue = redisTemplate.opsForValue();
         opsForValue.set(key, val);
         flag = true;

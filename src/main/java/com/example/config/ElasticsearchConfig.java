@@ -4,6 +4,8 @@ import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
 import org.elasticsearch.transport.client.PreBuiltTransportClient;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
@@ -23,6 +25,8 @@ import java.net.UnknownHostException;
 @Component
 public class ElasticsearchConfig {
 
+    private static final Logger logger = LoggerFactory.getLogger(ElasticsearchConfig.class);
+
     @Value("${spring.elasticsearch.url}")
     private String elasticsearchUrl;
 
@@ -31,6 +35,7 @@ public class ElasticsearchConfig {
 
     @Bean
     public TransportClient client() {
+        logger.info("初始化elasticsearch开始");
         // elasticsearch的地址
         String[] esUrl = elasticsearchUrl.split(",");
         // elasticsearch的端口
@@ -47,7 +52,9 @@ public class ElasticsearchConfig {
                 Integer port = Integer.valueOf(hostAndPort[1]);
                 client.addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName(host), port));
             }
+            logger.info("初始化elasticsearch完成");
         } catch (UnknownHostException e) {
+            logger.info("初始化elasticsearch失败");
             e.printStackTrace();
         }
         return client;

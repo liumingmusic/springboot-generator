@@ -1,19 +1,18 @@
 package com.example.aop;
 
-import java.util.Arrays;
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.Arrays;
 
 /**
  * @author doubleM
@@ -26,7 +25,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 @Component
 public class WebLogAspectExample {
 
-    private static final Logger logger = LogManager.getLogger(WebLogAspectExample.class);
+    private static final Logger logger = LoggerFactory.getLogger(WebLogAspectExample.class);
 
     @Pointcut("execution(public * com.example.controller..*.*(..))")
     public void webLog() {
