@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.util.Map;
 import java.util.Properties;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.ibatis.executor.parameter.ParameterHandler;
 import org.apache.ibatis.executor.statement.StatementHandler;
 import org.apache.ibatis.mapping.BoundSql;
@@ -33,6 +35,8 @@ import com.example.utils.PageParam;
  */
 @Component
 @Intercepts(@Signature(type = StatementHandler.class, method = "prepare", args = {Connection.class, Integer.class}))
+@Setter
+@Getter
 public class PagesInterceptor implements Interceptor {
 
     /**
@@ -72,8 +76,8 @@ public class PagesInterceptor implements Interceptor {
         }
         Integer pageNum = pageParam.getDefaultPage() == null ? defaultPage : pageParam.getDefaultPage();
         Integer pageSize = pageParam.getDefaultPageSize() == null ? defaultPageSize : pageParam.getDefaultPageSize();
-        Boolean useFlag = pageParam.isDefaultUseFlag() == null ? defaultUseFlag : pageParam.isDefaultUseFlag();
-        Boolean checkFlag = pageParam.isDefaultCheckFlag() == null ? defaultCheckFlag : pageParam.isDefaultCheckFlag();
+        Boolean useFlag = pageParam.getDefaultUseFlag() == null ? defaultUseFlag : pageParam.getDefaultUseFlag();
+        Boolean checkFlag = pageParam.getDefaultCheckFlag() == null ? defaultCheckFlag : pageParam.getDefaultCheckFlag();
         // 不使用分页功能
         if (!useFlag) {
             return invocation.proceed();
